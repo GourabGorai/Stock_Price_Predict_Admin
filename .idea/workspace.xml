@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf8dd7ed-08ed-4151-be7f-b6f724a1bd94" name="Changes" comment="First Push">
+    <list default="true" id="bf8dd7ed-08ed-4151-be7f-b6f724a1bd94" name="Changes" comment="final update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +101,7 @@
       <workItem from="1727882809009" duration="1420000" />
       <workItem from="1727888109966" duration="98000" />
       <workItem from="1727888388078" duration="109000" />
-      <workItem from="1728006995838" duration="3789000" />
+      <workItem from="1728006995838" duration="4901000" />
     </task>
     <task id="LOCAL-00001" summary="First Push">
       <option name="closed" value="true" />
@@ -122,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727888476733</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="final update">
+      <option name="closed" value="true" />
+      <created>1728011301780</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728011301780</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,9 +135,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Push" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Push" />
+    <MESSAGE value="final update" />
+    <option name="LAST_COMMIT_MESSAGE" value="final update" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FlaskProject$FlaskProject.coverage" NAME="FlaskProject Coverage Results" MODIFIED="1728011006383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/FlaskProject$FlaskProject.coverage" NAME="FlaskProject Coverage Results" MODIFIED="1728011883370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
