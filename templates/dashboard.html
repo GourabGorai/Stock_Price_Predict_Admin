@@ -1,58 +1,89 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Dashboard</h2>
+<div class="container mt-5">
+    <h1 class="mb-4">Dashboard</h1>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger mb-3">Logout</a>
 
-<h3>Users</h3>
-<table>
-    <thead>
-        <tr>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in userdata2 %}
-        <tr>
-            <td>{{ user[0] }}</td>
-            <td>{{ user[1] }}</td>
-            <td>
-                <a href="{{ url_for('edit_user', email=user[0]) }}">Edit</a> |
-                <a href="{{ url_for('delete_user', email=user[0]) }}">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-<h3>Stock History</h3>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Stock Symbol</th>
-            <th>Prediction Date</th>
-            <th>Predicted Value</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for stock in stockhistory %}
-        <tr>
-            <td>{{ stock.id }}</td>
-            <td>{{ stock.email }}</td>
-            <td>{{ stock.stock_symbol }}</td>
-            <td>{{ stock.prediction_date }}</td>
-            <td>{{ stock.predicted_value }}</td>
-            <td>
-                <a href="{{ url_for('edit_stock', id=stock.id) }}">Edit</a> |
-                <form action="{{ url_for('delete_stock', id=stock.id) }}" method="post" style="display:inline;">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <!-- User Search Form -->
+    <h2>User Data</h2>
+    <form method="POST" class="mb-4">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search_email_user" placeholder="Search user by email" value="{{ search_email_user }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <table class="table table-striped mb-5">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in userdata2 %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_user', email=user[0]) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ url_for('delete_user', email=user[0]) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Stock History Search Form -->
+    <h2>Stock History</h2>
+    <form method="POST" class="mb-4">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search_email_stock" placeholder="Search stock history by email" value="{{ search_email_stock }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Stock Symbol</th>
+                <th>Prediction Date</th>
+                <th>Predicted Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stockhistory %}
+                <tr>
+                    <td>{{ stock.id }}</td>
+                    <td>{{ stock.email }}</td>
+                    <td>{{ stock.stock_symbol }}</td>
+                    <td>{{ stock.prediction_date }}</td>
+                    <td>{{ stock.predicted_value }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_stock', id=stock.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="{{ url_for('delete_stock', id=stock.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this stock entry?')">Delete</button>
+                        </form>
+                        <a href="{{ url_for('download_stock_history', email=stock.email) }}" class="btn btn-sm btn-success">Download CSV</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
